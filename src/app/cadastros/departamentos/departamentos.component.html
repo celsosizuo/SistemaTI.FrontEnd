@@ -1,0 +1,67 @@
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 mb-3">
+        </div>
+        <div class="col-md-1 mb-3">
+            <label for="lastName">Código</label>
+            <input type="text" class="form-control" id="id" placeholder="" value="" readonly >
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>  
+        </div>
+        <div class="col-md-5 mb-3">
+            <label for="lastName">Nome do Departamento</label>
+            <input type="text" class="form-control" id="nomeDepartamento" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="#" class="btn btn-success" style="width: 100px;">Salvar</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#" class="btn btn-warning" style="width: 100px;">Limpar</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#" class="btn btn-danger" style="width: 100px;">Excluir</a>                            
+                </div>
+                <div class="col-md-3">
+                    <a href="#" class="btn btn-secondary" style="width: 100px;">Pesquisar</a>                            
+                </div>                        
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+<br>
+      <div class="card">
+        <h6 class="card-header bg-dark" style="color: white;">Lista de Departamentos</h6>
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead >
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome do Departamento</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let depto of departamentos">
+                    <td> {{ depto.id }}</td>
+                    <td> <a>{{ depto.nome }}</a> </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>      
+
+
+</div>

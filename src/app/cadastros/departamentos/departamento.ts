@@ -3,4 +3,5 @@ export class Departamento{
     nome: string;
     codCentroCusto: string;
     nomeCentroCusto: string;
+    active: boolean;
 }

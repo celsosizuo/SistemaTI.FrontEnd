@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF} from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { registerLocaleData } from '@angular/common';
@@ -32,6 +32,8 @@ import { DepartamentosComponent } from './cadastros/departamentos/departamentos.
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule, 
+    ReactiveFormsModule,
     [RouterModule.forRoot(rootRouterConfig, { useHash: false})],
   ],
   providers: [

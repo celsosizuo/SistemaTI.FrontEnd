@@ -1,65 +1,62 @@
 <br>
 <br>
-<div class="container">
+<form [formGroup]="formulario">
+  <div class="container">
     <div class="row">
-        <div class="col-md-3 mb-3">
+      <div class="col-md-3 mb-3">
+      </div>
+      <div class="col-md-1 mb-3">
+        <label for="lastName">Código</label>
+        <input type="text" class="form-control" formControlName="id" placeholder="" value="" readonly>
+        <div class="invalid-feedback">
+          Valid last name is required.
         </div>
-        <div class="col-md-1 mb-3">
-            <label for="lastName">Código</label>
-            <input type="text" class="form-control" id="id" placeholder="" value="" readonly >
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>  
+      </div>
+      <div class="col-md-5 mb-3">
+        <label for="lastName">Nome do Departamento</label>
+        <input type="text" class="form-control" formControlName="nome" placeholder="" value="" required="">
+        <div class="invalid-feedback">
+          Valid last name is required.
         </div>
-        <div class="col-md-5 mb-3">
-            <label for="lastName">Nome do Departamento</label>
-            <input type="text" class="form-control" id="nomeDepartamento" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-        </div>
+      </div>
     </div>
 
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="#" class="btn btn-success" style="width: 100px;">Salvar</a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#" class="btn btn-warning" style="width: 100px;">Limpar</a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#" class="btn btn-danger" style="width: 100px;">Excluir</a>                            
-                </div>
-                <div class="col-md-3">
-                    <a href="#" class="btn btn-primary" style="width: 100px;">Pesquisar</a>                            
-                </div>                        
-            </div>
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-3">
+            <a href="#" class="btn btn-success" style="width: 100px;">Salvar</a>
+          </div>
+          <div class="col-md-3">
+            <a class="btn btn-warning" style="width: 100px;"  (click)="onLimparDadosTela()">Limpar</a>
+          </div>
+          <div class="col-md-3">
+            <a href="#" class="btn btn-danger" style="width: 100px;">Excluir</a>
+          </div>
+          <div class="col-md-3">
+            <a href="#" class="btn btn-primary" style="width: 100px;">Pesquisar</a>
+          </div>
         </div>
-        <div class="col-md-3"></div>
+      </div>
+      <div class="col-md-3"></div>
     </div>
-<br>
-      <div class="card">
-        <h6 class="card-header bg-dark" style="color: white;">Lista de Departamentos</h6>
-        <div class="card-body">
-          <table class="table table-hover">
-            <thead >
-              <tr>
-                <th scope="col" class="bg-dark" style="color: white">#</th>
-                <th scope="col" class="bg-dark" style="color: white">Nome do Departamento</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let depto of departamentos">
-                    <td> {{ depto.id }}</td>
-                    <td> <a>{{ depto.nome }}</a> </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>      
-
-
-</div>
+    <br>
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th scope="col" class="bg-dark" style="color: white">#</th>
+          <th scope="col" class="bg-dark" style="color: white">Nome do Departamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let depto of departamentos">
+          <tr [ngClass]="{'active':depto.active}" (click)="onSelecionarDepartamento(departamentos, depto)" style="cursor: pointer;">
+            <td> {{ depto.id }}</td>
+            <td> <a>{{ depto.nome }}</a> </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</form>
